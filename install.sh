@@ -16,18 +16,6 @@ if [ "$do_brew_installs" = true ]; then
 	brew install --cask iterm2
 	brew install zsh
 	brew install zsh-syntax-highlighting
-
-	echo -e "\033[93mDo you have VS Code installed?"
-	select yn in "Yes" "No"; do
-    	case $yn in
-    		Yes )
-			brew install hub
-			brew install swiftbar
-			brew install dive
-			echo "View Github Tools documentation for setup/usage instructions (cmd + double-click on below link)"
-    		No ) break;;
-    	esac
-done
 fi
 
 # make zsh your default shell
@@ -69,3 +57,18 @@ echo -e "\033[93mLaunch iTerm2 then change the following preferences"
 echo -e "\033[93miTerm2->Preferences->Profiles->Colors->Color Presets...->SolarizedDark"
 echo -e "\033[93mThen in Profiles->Colors. Change ANSI Bright-Black to a brighter colour."
 echo -e "\033[93mThen in Profiles->Text->Font. Choose whichever Powerline font you like."
+echo ""
+
+while true; do
+    read -p "Do you have VS Code installed?" yn
+    case $yn in
+        [Yy]* )
+		echo "Navigate to VS Code->Preferences->Settings and search 'terminal.integrated.fontFamily'."
+		echo "In the FontFamily setting, input your chosen Powerline font. i.e. Source Code Pro for Powerline"
+		echo "You may also wish to change the font size 'terminal.integrated.fontSize'."; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+echo -e "Restart iTerm2 and you're good to go!"
