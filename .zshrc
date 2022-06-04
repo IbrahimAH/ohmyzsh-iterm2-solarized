@@ -2,13 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-if [[ "$OSTYPE" == "darwin"* ]]; then
-        # Mac OSX
-        export ZSH="/Users/$(whoami)/.oh-my-zsh"
-else
-        # ubuntu 
-        export ZSH="/home/$(whoami)/.oh-my-zsh"
-fi
+export ZSH="/Users/$(whoami)/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -77,13 +71,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-if [[ "$OSTYPE" == "darwin"* ]]; then
-        # Mac OSX
-        plugins=(git macos zsh-autosuggestions)
-else
-        # ubuntu 
-        plugins=(git zsh-autosuggestions)
-fi
+plugins=(git macos zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
