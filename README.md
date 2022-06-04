@@ -1,4 +1,4 @@
-# ohmyzsh-iterm2-solarized
+# ohmyzsh-iterm2-solarized FOR MAC
 To create a customised zsh profile that's aesthetic and functional
 
 Just run ./install.sh
