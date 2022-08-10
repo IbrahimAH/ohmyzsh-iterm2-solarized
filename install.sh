@@ -30,6 +30,10 @@ mkdir -p ${CODEDIR}
 cd ${CODEDIR}
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+# optional, highlights valid and invalid commands like fish shell
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
 # copy my custom .zshrc config with some plugins and theme settings ready to go
 git clone https://github.com/IbrahimAH/ohmyzsh-iterm2-solarized.git
 cp ohmyzsh-iterm2-solarized/.zshrc ~/.zshrc
