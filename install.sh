@@ -32,7 +32,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 if [ "$do_brew_installs_extra" = true ]; then
 	echo "5/$steps Installing Ohmyzsh plugins..."
-	brew install zsh-syntax-highlighting
 	brew install hub
 	brew tap homebrew/command-not-found
 fi
