@@ -71,16 +71,31 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos zsh-autosuggestions)
+plugins=(
+  git
+  macos
+  zsh-autosuggestions
+  copypath
+  shrink-path
+  z
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
+# command-not-found
+HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+source "$HB_CNF_HANDLER";
+fi
 # To enable verbose logging for hub commands
 # export HUB_VERBOSE=1
+# use shrink path to shorten directory prompt
+prompt_dir() {
+  prompt_segment blue $CURRENT_FG $(shrink_path -l -t)
+}
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -101,13 +116,23 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Aliases
+# zsh/ohmyzsh aliases
 alias zshconfig="code ~/.zshrc"
-alias zprofile="code ~/.zprofile"
 alias ohmyzsh="code ~/.oh-my-zsh"
-# github aliases
+alias zprofile="code ~/.zprofile"
+alias ze="z -e"
+# docker aliases
+alias images="docker images"
+# github/hub aliases
 alias status="git status"
-alias add="git add *"
+# alias addall="git add *"
 alias push="git push origin"
-# alias sync="hub sync"
+alias sync="hub sync"
+alias add="git add"
+alias switch="git switch"
+alias merge="hub merge master"
+# npm/yarn
+alias yarnrc="code ~/.yarnrc"
+alias npmrc="code ~/.npmrc"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
