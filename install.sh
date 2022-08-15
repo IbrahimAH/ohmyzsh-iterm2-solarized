@@ -2,6 +2,7 @@
 
 CODEDIR=~/zsh-addons
 do_brew_installs=true
+do_brew_installs_extra=true
 
 echo -e "\033[93m!! Warning !!"
 echo "This script must be run off corporate network (without VPN)."
@@ -15,7 +16,12 @@ fi
 if [ "$do_brew_installs" = true ]; then
 	brew install --cask iterm2
 	brew install zsh
+fi
+
+if [ "$do_brew_installs_extra" = true ]; then
 	brew install zsh-syntax-highlighting
+	brew install hub
+	brew tap homebrew/command-not-found
 fi
 
 # make zsh your default shell
