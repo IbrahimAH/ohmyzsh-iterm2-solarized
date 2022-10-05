@@ -125,10 +125,9 @@ alias ze="z -e"
 alias images="docker images"
 # github/hub aliases
 alias status="git status"
-# alias addall="git add *"
 alias push="git push origin"
 alias sync="hub sync"
-alias add="git add"
+alias add="git add ."
 alias switch="git switch"
 alias merge="hub merge master"
 # npm/yarn
